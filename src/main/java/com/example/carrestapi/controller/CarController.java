@@ -37,7 +37,7 @@ public class CarController {
         return ResponseEntity.ok(car);
     }
 
-    @RequestMapping(value = "/cars", method = RequestMethod.POST)
+    @RequestMapping(value = "/cars", method = RequestMethod.POST, produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<CarResponse> addCar(@RequestBody Car car) {
         return ResponseEntity.ok(service.saveCar(car));
     }
