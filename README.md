@@ -3,6 +3,9 @@
 The Structure of the car-rest-API is as follows.
 
 ### Get all cars
+````javascript
+curl --location --request GET 'http://localhost:8080/api/cars'
+````
 HTTP_VERB: GET
 
 URL: http://localhost:8080/api/cars
@@ -112,6 +115,9 @@ RESPONSE: status_code: 200
 ]
 ````
 ### Get a car by id
+````javascript
+curl --location --request GET 'http://localhost:8080/api/cars/6'
+````
 HTTP_VERB: GET
 
 URL: http://localhost:8080/api/cars/{id}
@@ -133,6 +139,18 @@ RESPONSE:  status_code: 200
 Returns status_code HTTP_NOT_FOUND (404) if no car with given id exists
 
 ### Create a new car
+````javascript
+curl --location --request POST 'http://localhost:8080/api/cars' \
+--header 'Content-Type: application/json' \
+--data-raw '{
+    "brand": "Acura",
+    "model" : "NSX",
+    "color" : "Berlina Black",
+    "power" : "573",
+    "yearOfManufacture": "2020",
+    "vinNumber": "19UNC1B06JY000055"
+}'
+````
 HTTP_VERB: POST
 
 URL: http://localhost:8080/api/cars
@@ -150,6 +168,9 @@ Request Body:
 ````
 
 ### Delete existing car by id
+````javascript
+curl --location --request DELETE 'http://localhost:8080/api/cars/6'
+````
 HTTP_VERB: DELETE
 
 URL: http://localhost:8080/api/cars/{id}
